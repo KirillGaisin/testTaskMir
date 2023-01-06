@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-user
+      author: Kirill
+      changes:
+        - createTable:
+            tableName: user_entity
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                    unique: true
+              - column:
+                  name: name
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: date_of_birth
+                  type: varchar(200)
+                  constraints:
+                    nullable: false

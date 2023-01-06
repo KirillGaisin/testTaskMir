@@ -1,0 +1,37 @@
+buildscript {
+    dependencies {
+        classpath("io.swagger.codegen.v3:swagger-codegen:3.0.36")
+    }
+}
+
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.7.0'
+    id 'io.spring.dependency-management' version '1.1.0'
+    id 'io.swagger.core.v3.swagger-gradle-plugin' version '2.2.7'
+    id 'org.springdoc.openapi-gradle-plugin' version '1.6.0'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.liquibase:liquibase-core:4.18.0'
+    implementation 'org.projectlombok:lombok:1.18.24'
+    implementation 'org.springdoc:springdoc-openapi-ui:1.6.14'
+    annotationProcessor 'org.projectlombok:lombok'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    runtimeOnly 'org.postgresql:postgresql'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

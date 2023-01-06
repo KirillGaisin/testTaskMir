@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-phone
+      author: Kirill
+      changes:
+        - createTable:
+            tableName: phone_entity
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                    unique: true
+              - column:
+                  name: phone
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: user_id
+                  type: UUID
+                  constraints:
+                    foreignKeyName: usr
